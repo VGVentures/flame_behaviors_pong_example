@@ -13,10 +13,10 @@ void main() {
 
   final flameTester = FlameTester<TestGame>(TestGame.new);
 
-  group('MovementBehavior', () {
+  group('MovingBehavior', () {
     flameTester.test('moves in direction of the Ball velocity', (game) async {
       final center = game.size / 2;
-      final behavior = MovementBehavior();
+      final behavior = MovingBehavior();
 
       final ball = Ball.test(
         behavior: behavior,
@@ -35,7 +35,7 @@ void main() {
         'when hitting the top',
         (game) async {
           final center = game.size / 2;
-          final behavior = MovementBehavior();
+          final behavior = MovingBehavior();
 
           final ball = Ball.test(
             behavior: behavior,
@@ -56,7 +56,7 @@ void main() {
         'when hitting the bottom',
         (game) async {
           final center = game.size / 2;
-          final behavior = MovementBehavior();
+          final behavior = MovingBehavior();
 
           final ball = Ball.test(
             behavior: behavior,

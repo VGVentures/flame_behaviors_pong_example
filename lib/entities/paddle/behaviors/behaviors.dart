@@ -1,2 +1,2 @@
-export 'keyboard_movement_behavior.dart';
-export 'track_ball_behavior.dart';
+export 'keyboard_moving_behavior.dart';
+export 'tracking_ball_behavior.dart';

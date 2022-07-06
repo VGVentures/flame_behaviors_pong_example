@@ -3,13 +3,13 @@ import 'package:flame_behaviors/flame_behaviors.dart';
 import 'package:flame_behaviors_pong_example/components/components.dart';
 import 'package:flame_behaviors_pong_example/entities/entities.dart';
 
-/// {@template movement_behavior}
+/// {@template moving_behavior}
 /// A behavior that makes the ball move in a certain direction.
 ///
 /// If it hits the top or bottom of the field it will reverse the velocity
 /// y-axis.
 /// {@endtemplate}
-class MovementBehavior extends Behavior<Ball> with HasGameRef {
+class MovingBehavior extends Behavior<Ball> with HasGameRef {
   @override
   void update(double dt) {
     parent.position += parent.velocity * dt;

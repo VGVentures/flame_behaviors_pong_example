@@ -34,7 +34,7 @@ class Paddle extends Entity {
     required LogicalKeyboardKey downKey,
   }) : this._(
           center: center,
-          movingBehavior: KeyboardMovementBehavior(
+          movingBehavior: KeyboardMovingBehavior(
             upKey: upKey,
             downKey: downKey,
           ),
@@ -67,7 +67,7 @@ class Paddle extends Entity {
   /// Will track the ball autonomously.
   Paddle.autonomous({
     required Vector2 center,
-  }) : this._(center: center, movingBehavior: TrackBallBehavior());
+  }) : this._(center: center, movingBehavior: TrackingBallBehavior());
 
   /// {@macro paddle}
   ///

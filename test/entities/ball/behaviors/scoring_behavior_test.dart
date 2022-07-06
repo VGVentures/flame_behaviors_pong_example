@@ -18,7 +18,7 @@ void main() {
         'when hitting the left side',
         (game) async {
           final center = game.size / 2;
-          final behavior = ScoreBehavior();
+          final behavior = ScoringBehavior();
 
           final ball = Ball.test(
             behavior: behavior,
@@ -39,7 +39,7 @@ void main() {
         'when hitting the right side',
         (game) async {
           final center = game.size / 2;
-          final behavior = ScoreBehavior();
+          final behavior = ScoringBehavior();
 
           final ball = Ball.test(
             behavior: behavior,

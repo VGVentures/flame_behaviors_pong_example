@@ -42,8 +42,8 @@ void main() {
         final paddles = game.children.whereType<Paddle>();
 
         expect(paddles.length, equals(2));
-        expect(paddles.first.hasBehavior<KeyboardMovementBehavior>(), isTrue);
-        expect(paddles.last.hasBehavior<KeyboardMovementBehavior>(), isTrue);
+        expect(paddles.first.hasBehavior<KeyboardMovingBehavior>(), isTrue);
+        expect(paddles.last.hasBehavior<KeyboardMovingBehavior>(), isTrue);
       });
 
       flameTester.test('with player vs computer mode', (game) async {
@@ -52,8 +52,8 @@ void main() {
         final paddles = game.children.whereType<Paddle>();
 
         expect(paddles.length, equals(2));
-        expect(paddles.first.hasBehavior<TrackBallBehavior>(), isTrue);
-        expect(paddles.last.hasBehavior<KeyboardMovementBehavior>(), isTrue);
+        expect(paddles.first.hasBehavior<TrackingBallBehavior>(), isTrue);
+        expect(paddles.last.hasBehavior<KeyboardMovingBehavior>(), isTrue);
       });
 
       flameTester.test('with computer vs computer mode', (game) async {
@@ -62,8 +62,8 @@ void main() {
         final paddles = game.children.whereType<Paddle>();
 
         expect(paddles.length, equals(2));
-        expect(paddles.first.hasBehavior<TrackBallBehavior>(), isTrue);
-        expect(paddles.last.hasBehavior<TrackBallBehavior>(), isTrue);
+        expect(paddles.first.hasBehavior<TrackingBallBehavior>(), isTrue);
+        expect(paddles.last.hasBehavior<TrackingBallBehavior>(), isTrue);
       });
     });
 

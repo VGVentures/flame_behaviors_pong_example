@@ -15,9 +15,9 @@ class Ball extends Entity with HasGameRef {
   Ball()
       : this._(
           behaviors: [
-            MovementBehavior(),
-            PaddleCollisionBehavior(),
-            ScoreBehavior(),
+            MovingBehavior(),
+            PaddleCollidingBehavior(),
+            ScoringBehavior(),
           ],
         );
 

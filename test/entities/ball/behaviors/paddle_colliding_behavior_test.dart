@@ -11,9 +11,9 @@ class _MockPaddle extends Mock implements Paddle {}
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('PaddleCollisionBehavior', () {
+  group('PaddleCollidingBehavior', () {
     test('reverse x-axis of velocity when hitting a paddle', () {
-      final behavior = PaddleCollisionBehavior();
+      final behavior = PaddleCollidingBehavior();
 
       final ball = Ball.test(
         behavior: behavior,

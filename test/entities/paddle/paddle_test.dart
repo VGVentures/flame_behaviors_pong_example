@@ -33,11 +33,11 @@ void main() {
         await game.ready();
         await game.ensureAdd(paddle);
 
-        final behavior = paddle.firstChild<KeyboardMovementBehavior>();
+        final behavior = paddle.firstChild<KeyboardMovingBehavior>();
 
         expect(game.contains(paddle), isTrue);
         expect(behavior, isNotNull);
-        expect(paddle.firstChild<TrackBallBehavior>(), isNull);
+        expect(paddle.firstChild<TrackingBallBehavior>(), isNull);
         expect(behavior!.upKey, equals(LogicalKeyboardKey.arrowUp));
         expect(behavior.downKey, equals(LogicalKeyboardKey.arrowDown));
       },
@@ -50,11 +50,11 @@ void main() {
         await game.ready();
         await game.ensureAdd(paddle);
 
-        final behavior = paddle.firstChild<KeyboardMovementBehavior>();
+        final behavior = paddle.firstChild<KeyboardMovingBehavior>();
 
         expect(game.contains(paddle), isTrue);
         expect(behavior, isNotNull);
-        expect(paddle.firstChild<TrackBallBehavior>(), isNull);
+        expect(paddle.firstChild<TrackingBallBehavior>(), isNull);
         expect(behavior!.upKey, equals(LogicalKeyboardKey.keyW));
         expect(behavior.downKey, equals(LogicalKeyboardKey.keyS));
       },
@@ -68,8 +68,8 @@ void main() {
         await game.ensureAdd(paddle);
 
         expect(game.contains(paddle), isTrue);
-        expect(paddle.firstChild<TrackBallBehavior>(), isNotNull);
-        expect(paddle.firstChild<KeyboardMovementBehavior>(), isNull);
+        expect(paddle.firstChild<TrackingBallBehavior>(), isNotNull);
+        expect(paddle.firstChild<KeyboardMovingBehavior>(), isNull);
       },
     );
   });
