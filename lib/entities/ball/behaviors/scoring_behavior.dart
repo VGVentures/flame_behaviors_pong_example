@@ -3,12 +3,12 @@ import 'package:flame_behaviors/flame_behaviors.dart';
 import 'package:flame_behaviors_pong_example/entities/entities.dart';
 import 'package:flame_behaviors_pong_example/pong_game.dart';
 
-/// {@template score_behavior}
+/// {@template scoring_behavior}
 /// A behavior that adds a point to the score when the ball hits the other side.
 ///
 /// It also resets the ball to the center of the field.
 /// {@endtemplate}
-class ScoreBehavior extends Behavior<Ball> with HasGameRef<PongGame> {
+class ScoringBehavior extends Behavior<Ball> with HasGameRef<PongGame> {
   @override
   void update(double dt) {
     final hitLeft = parent.position.x - parent.size.x <= 0;

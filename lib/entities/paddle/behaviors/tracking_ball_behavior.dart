@@ -6,12 +6,12 @@ import 'package:flame_behaviors_pong_example/components/components.dart';
 import 'package:flame_behaviors_pong_example/entities/entities.dart';
 import 'package:flutter/material.dart';
 
-/// {@template track_ball_behavior}
+/// {@template tracking_ball_behavior}
 /// A behavior that makes the paddle track the ball.
 /// {@endtemplate}
-class TrackBallBehavior extends Behavior<Paddle> with HasGameRef {
-  /// {@macro track_ball_behavior}
-  TrackBallBehavior({
+class TrackingBallBehavior extends Behavior<Paddle> with HasGameRef {
+  /// {@macro tracking_ball_behavior}
+  TrackingBallBehavior({
     this.difficulty = Difficulty.easy,
     @visibleForTesting Random? random,
   }) : _random = random ?? Random();

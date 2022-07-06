@@ -19,7 +19,7 @@ void main() {
 
   final flameTester = FlameTester<TestGame>(TestGame.new);
 
-  group('TrackBallBehavior', () {
+  group('TrackingBallBehavior', () {
     late Random random;
 
     setUp(() {
@@ -29,7 +29,7 @@ void main() {
     flameTester.test(
       'does not track if the ball is on the other side',
       (game) async {
-        final behavior = TrackBallBehavior(random: random);
+        final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
 
         final paddle = Paddle.test(
@@ -55,7 +55,7 @@ void main() {
       });
 
       flameTester.test('when it is below the ball', (game) async {
-        final behavior = TrackBallBehavior(random: random);
+        final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
 
         final paddle = Paddle.test(
@@ -76,7 +76,7 @@ void main() {
       });
 
       flameTester.test('when it is above the ball', (game) async {
-        final behavior = TrackBallBehavior(random: random);
+        final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
 
         final paddle = Paddle.test(

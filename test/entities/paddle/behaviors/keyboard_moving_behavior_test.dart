@@ -28,13 +28,13 @@ void main() {
 
   final flameTester = FlameTester<TestGame>(TestGame.new);
 
-  group('KeyboardMovementBehavior', () {
+  group('KeyboardMovingBehavior', () {
     const downKey = LogicalKeyboardKey.arrowDown;
     const upKey = LogicalKeyboardKey.arrowUp;
     const speed = 10.0;
 
     flameTester.test('on downKey pressed', (game) async {
-      final behavior = KeyboardMovementBehavior(
+      final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
         speed: speed,
@@ -56,7 +56,7 @@ void main() {
     });
 
     flameTester.test('on upKey pressed', (game) async {
-      final behavior = KeyboardMovementBehavior(
+      final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
         speed: speed,
@@ -78,7 +78,7 @@ void main() {
     });
 
     flameTester.test('on no keys pressed', (game) async {
-      final behavior = KeyboardMovementBehavior(
+      final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
         speed: speed,

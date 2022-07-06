@@ -4,14 +4,14 @@ import 'package:flame_behaviors_pong_example/components/components.dart';
 import 'package:flame_behaviors_pong_example/entities/paddle/paddle.dart';
 import 'package:flutter/services.dart';
 
-/// {@template keyboard_movement_behavior}
+/// {@template keyboard_moving_behavior}
 /// A behavior that makes a paddle move up and down based on the user's
 /// keyboard input.
 /// {@endtemplate}
-class KeyboardMovementBehavior extends Behavior<Paddle>
+class KeyboardMovingBehavior extends Behavior<Paddle>
     with KeyboardHandler, HasGameRef {
-  /// {@macro keyboard_movement_behavior}
-  KeyboardMovementBehavior({
+  /// {@macro keyboard_moving_behavior}
+  KeyboardMovingBehavior({
     this.speed = 100,
     required this.downKey,
     required this.upKey,
