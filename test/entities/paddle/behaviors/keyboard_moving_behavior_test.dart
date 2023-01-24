@@ -5,7 +5,6 @@ import 'package:flame/game.dart';
 import 'package:flame_behaviors_pong_example/entities/paddle/behaviors/behaviors.dart';
 import 'package:flame_behaviors_pong_example/entities/paddle/paddle.dart';
 import 'package:flame_test/flame_test.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
