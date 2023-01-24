@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 /// {@template ball}
 /// A ball that will move over the field.
 /// {@endtemplate}
-class Ball extends Entity with HasGameRef {
+class Ball extends PositionedEntity with HasGameRef {
   /// {@macro ball}
   Ball()
       : this._(

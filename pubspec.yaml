@@ -1,14 +1,14 @@
 name: flame_behaviors_pong_example
 description: An example Flame game built with Flame Behaviors.
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
   sdk: ">=2.17.3 <3.0.0"
 
 dependencies:
-  flame: ^1.2.0
-  flame_behaviors: ^0.1.0
+  flame: ^1.6.0
+  flame_behaviors: ^0.2.0
   flutter:
     sdk: flutter
 
