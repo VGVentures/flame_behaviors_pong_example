@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 /// {@template ball}
 /// A ball that will move over the field.
 /// {@endtemplate}
-class Ball extends Entity with HasGameRef {
+class Ball extends PositionedEntity with HasGameRef {
   /// {@macro ball}
   Ball()
       : this._(
@@ -42,10 +42,7 @@ class Ball extends Entity with HasGameRef {
   }) : super(
           size: _ballSize,
           anchor: Anchor.center,
-          children: [
-            CircleComponent.relative(1, parentSize: _ballSize)
-              ..paint = PongGame.paint
-          ],
+          children: [CircleComponent.relative(1, parentSize: _ballSize)..paint = PongGame.paint],
           behaviors: [
             PropagatingCollisionBehavior(CircleHitbox()),
             if (behaviors != null) ...behaviors,
@@ -79,6 +76,6 @@ class Ball extends Entity with HasGameRef {
       sin(angle) * goingLeft * maxSpeed,
     );
 
-    position.setFrom(gameRef.size / 2);
+    position.setFrom(game.size / 2);
   }
 }

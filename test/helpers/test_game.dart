@@ -4,8 +4,7 @@ import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 
-class TestGame extends FlameGame
-    with HasKeyboardHandlerComponents, HasDraggables, HasCollisionDetection {
+class TestGame extends FlameGame with HasKeyboardHandlerComponents, HasCollisionDetection {
   TestGame() {
     images.prefix = '';
     Flame.images.prefix = '';

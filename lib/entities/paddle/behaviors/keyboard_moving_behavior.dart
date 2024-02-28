@@ -8,8 +8,7 @@ import 'package:flutter/services.dart';
 /// A behavior that makes a paddle move up and down based on the user's
 /// keyboard input.
 /// {@endtemplate}
-class KeyboardMovingBehavior extends Behavior<Paddle>
-    with KeyboardHandler, HasGameRef {
+class KeyboardMovingBehavior extends Behavior<Paddle> with KeyboardHandler, HasGameRef {
   /// {@macro keyboard_moving_behavior}
   KeyboardMovingBehavior({
     this.speed = 100,
@@ -32,7 +31,7 @@ class KeyboardMovingBehavior extends Behavior<Paddle>
   double _movement = 0;
 
   @override
-  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+  bool onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     if (keysPressed.contains(upKey)) {
       _movement = -1;
     } else if (keysPressed.contains(downKey)) {

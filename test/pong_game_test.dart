@@ -16,27 +16,23 @@ mixin _DiagnosticableToStringMixin on Object {
   }
 }
 
-class _RawKeyEvent extends Mock
-    with _DiagnosticableToStringMixin
-    implements RawKeyEvent {}
+class _RawKeyEvent extends Mock with _DiagnosticableToStringMixin implements KeyEvent {}
 
 void main() {
-  final flameTester = FlameTester<PongGame>(PongGame.new);
-
   group('PongGame', () {
     test('can be instantiated', () {
       expect(PongGame(), isA<PongGame>());
     });
 
     group('start', () {
-      flameTester.test('does nothing if game is not paused', (game) async {
+      testWithGame('does nothing if game is not paused', PongGame.new, (game) async {
         game.paused = false;
         await game.start(GameMode.computerVsComputer);
 
         expect(game.children.whereType<Paddle>(), isEmpty);
       });
 
-      flameTester.test('with player vs player mode', (game) async {
+      testWithGame('with player vs player mode', PongGame.new, (game) async {
         await game.start(GameMode.playerVsPlayer);
 
         final paddles = game.children.whereType<Paddle>();
@@ -46,7 +42,7 @@ void main() {
         expect(paddles.last.hasBehavior<KeyboardMovingBehavior>(), isTrue);
       });
 
-      flameTester.test('with player vs computer mode', (game) async {
+      testWithGame('with player vs computer mode', PongGame.new, (game) async {
         await game.start(GameMode.playerVsComputer);
 
         final paddles = game.children.whereType<Paddle>();
@@ -56,7 +52,7 @@ void main() {
         expect(paddles.last.hasBehavior<KeyboardMovingBehavior>(), isTrue);
       });
 
-      flameTester.test('with computer vs computer mode', (game) async {
+      testWithGame('with computer vs computer mode', PongGame.new, (game) async {
         await game.start(GameMode.computerVsComputer);
 
         final paddles = game.children.whereType<Paddle>();
@@ -67,7 +63,7 @@ void main() {
       });
     });
 
-    flameTester.test('onKeyEvent', (game) async {
+    testWithGame('onKeyEvent', PongGame.new, (game) async {
       final event = _RawKeyEvent();
       final keysPressed = {LogicalKeyboardKey.pageDown};
       expect(game.onKeyEvent(event, keysPressed), KeyEventResult.handled);

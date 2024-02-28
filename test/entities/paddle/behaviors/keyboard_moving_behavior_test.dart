@@ -5,7 +5,6 @@ import 'package:flame/game.dart';
 import 'package:flame_behaviors_pong_example/entities/paddle/behaviors/behaviors.dart';
 import 'package:flame_behaviors_pong_example/entities/paddle/paddle.dart';
 import 'package:flame_test/flame_test.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -19,21 +18,17 @@ mixin _DiagnosticableToStringMixin on Object {
   }
 }
 
-class _RawKeyEvent extends Mock
-    with _DiagnosticableToStringMixin
-    implements RawKeyEvent {}
+class _KeyEvent extends Mock with _DiagnosticableToStringMixin implements KeyEvent {}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-
-  final flameTester = FlameTester<TestGame>(TestGame.new);
 
   group('KeyboardMovingBehavior', () {
     const downKey = LogicalKeyboardKey.arrowDown;
     const upKey = LogicalKeyboardKey.arrowUp;
     const speed = 10.0;
 
-    flameTester.test('on downKey pressed', (game) async {
+    testWithGame('on downKey pressed', TestGame.new, (game) async {
       final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
@@ -47,7 +42,7 @@ void main() {
       );
       await game.ensureAdd(paddle);
 
-      final event = _RawKeyEvent();
+      final event = _KeyEvent();
       final keysPressed = {downKey};
       game.onKeyEvent(event, keysPressed);
       game.update(1);
@@ -55,7 +50,7 @@ void main() {
       expect(paddle.position.y, equals(centerY + speed));
     });
 
-    flameTester.test('on upKey pressed', (game) async {
+    testWithGame('on upKey pressed', TestGame.new, (game) async {
       final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
@@ -69,7 +64,7 @@ void main() {
       );
       await game.ensureAdd(paddle);
 
-      final event = _RawKeyEvent();
+      final event = _KeyEvent();
       final keysPressed = {upKey};
       game.onKeyEvent(event, keysPressed);
       game.update(1);
@@ -77,7 +72,7 @@ void main() {
       expect(paddle.position.y, equals(centerY - speed));
     });
 
-    flameTester.test('on no keys pressed', (game) async {
+    testWithGame('on no keys pressed', TestGame.new, (game) async {
       final behavior = KeyboardMovingBehavior(
         downKey: downKey,
         upKey: upKey,
@@ -91,7 +86,7 @@ void main() {
       );
       await game.ensureAdd(paddle);
 
-      final event = _RawKeyEvent();
+      final event = _KeyEvent();
       final keysPressed = <LogicalKeyboardKey>{};
       game.onKeyEvent(event, keysPressed);
       game.update(1);

@@ -11,10 +11,8 @@ import '../../../helpers/helpers.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  final flameTester = FlameTester<TestGame>(TestGame.new);
-
   group('MovingBehavior', () {
-    flameTester.test('moves in direction of the Ball velocity', (game) async {
+    testWithGame('moves in direction of the Ball velocity', TestGame.new, (game) async {
       final center = game.size / 2;
       final behavior = MovingBehavior();
 
@@ -31,8 +29,9 @@ void main() {
     });
 
     group('reverse y-axis of velocity', () {
-      flameTester.test(
+      testWithGame(
         'when hitting the top',
+        TestGame.new,
         (game) async {
           final center = game.size / 2;
           final behavior = MovingBehavior();
@@ -52,8 +51,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame(
         'when hitting the bottom',
+        TestGame.new,
         (game) async {
           final center = game.size / 2;
           final behavior = MovingBehavior();
