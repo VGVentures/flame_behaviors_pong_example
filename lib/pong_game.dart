@@ -1,3 +1,4 @@
+import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
@@ -36,7 +37,7 @@ class PongGame extends FlameGame
   @override
   Future<void> onLoad() async {
     // Set the viewport to the original game's size.
-    camera.viewport = FixedResolutionViewport(Vector2(512, 256));
+    camera.viewport = FixedSizeViewport(512, 256);
 
     final Ball ball;
 
@@ -56,7 +57,7 @@ class PongGame extends FlameGame
           textRenderer: TextPaint(
             style: const TextStyle(fontSize: Field.width, color: Colors.green),
           ),
-        )
+        ),
     ]);
 
     ball.reset();
@@ -103,7 +104,7 @@ class PongGame extends FlameGame
   @override
   @mustCallSuper
   KeyEventResult onKeyEvent(
-    RawKeyEvent event,
+    KeyEvent event,
     Set<LogicalKeyboardKey> keysPressed,
   ) {
     super.onKeyEvent(event, keysPressed);

@@ -15,8 +15,7 @@ class MovingBehavior extends Behavior<Ball> with HasGameRef {
     parent.position += parent.velocity * dt;
 
     final hitTop = parent.position.y - parent.size.y <= 0;
-    final hitBottom = parent.position.y >=
-        gameRef.size.y - Field.halfWidth - parent.size.y / 2;
+    final hitBottom = parent.position.y >= gameRef.size.y - Field.halfWidth - parent.size.y / 2;
 
     // If we hit top or bottom, reverse the velocity value.
     if (hitTop || hitBottom) {

@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 /// {@template paddle}
 /// A paddle that can be controlled by the user.
 /// {@endtemplate}
-class Paddle extends Entity {
+class Paddle extends PositionedEntity {
   Paddle._({
     required Vector2 center,
     required Behavior movingBehavior,

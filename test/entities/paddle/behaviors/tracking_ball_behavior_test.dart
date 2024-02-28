@@ -17,8 +17,6 @@ class _MockRandom extends Mock implements Random {}
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  final flameTester = FlameTester<TestGame>(TestGame.new);
-
   group('TrackingBallBehavior', () {
     late Random random;
 
@@ -26,8 +24,9 @@ void main() {
       random = _MockRandom();
     });
 
-    flameTester.test(
+    testWithGame(
       'does not track if the ball is on the other side',
+      TestGame.new,
       (game) async {
         final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
@@ -54,7 +53,7 @@ void main() {
         when(() => random.nextInt(any())).thenReturn(1);
       });
 
-      flameTester.test('when it is below the ball', (game) async {
+      testWithGame('when it is below the ball', TestGame.new, (game) async {
         final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
 
@@ -75,7 +74,7 @@ void main() {
         expect(paddle.center.y, equals(centerY + 100));
       });
 
-      flameTester.test('when it is above the ball', (game) async {
+      testWithGame('when it is above the ball', TestGame.new, (game) async {
         final behavior = TrackingBallBehavior(random: random);
         final centerY = game.size.y / 2;
 

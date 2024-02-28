@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class Score extends PositionComponent with HasGameRef {
   /// {@macro score}
   Score.left()
-      : _textPaint = TextPaint(textDirection: TextDirection.ltr),
+      : _textPaint = TextPaint(),
         super(anchor: Anchor.center);
 
   /// {@macro score}

@@ -15,11 +15,10 @@ class _MockRandom extends Mock implements Random {}
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  final flameTester = FlameTester<TestGame>(TestGame.new);
-
   group('Ball', () {
-    flameTester.test(
+    testWithGame(
       'loads correctly',
+      TestGame.new,
       (game) async {
         final ball = Ball();
         await game.ready();
@@ -29,8 +28,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame(
       'reset ball to center with a random direction',
+      TestGame.new,
       (game) async {
         final random = _MockRandom();
         when(() => random.nextInt(any())).thenReturn(0);
@@ -43,13 +43,13 @@ void main() {
         await game.ready();
         await game.ensureAdd(ball);
 
-        expect(ball.position, closeToVector(0, 0));
-        expect(ball.velocity, closeToVector(0, 0));
+        expect(ball.position, closeToVector(Vector2(0, 0)));
+        expect(ball.velocity, closeToVector(Vector2(0, 0)));
 
         ball.reset(random);
 
         expect(ball.position, equals(game.size / 2));
-        expect(ball.velocity, closeToVector(Ball.maxSpeed, 0));
+        expect(ball.velocity, closeToVector(Vector2(Ball.maxSpeed, 0)));
       },
     );
   });

@@ -12,11 +12,10 @@ import '../../helpers/helpers.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  final flameTester = FlameTester<TestGame>(TestGame.new);
-
   group('Paddle', () {
-    flameTester.test(
+    testWithGame(
       'loads correctly',
+      TestGame.new,
       (game) async {
         final paddle = Paddle.autonomous(center: Vector2.zero());
         await game.ready();
@@ -26,8 +25,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame(
       'is arrows based',
+      TestGame.new,
       (game) async {
         final paddle = Paddle.arrows(center: Vector2.zero());
         await game.ready();
@@ -43,8 +43,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame(
       'is WASD based',
+      TestGame.new,
       (game) async {
         final paddle = Paddle.wasd(center: Vector2.zero());
         await game.ready();
@@ -60,8 +61,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame(
       'is autonomous',
+      TestGame.new,
       (game) async {
         final paddle = Paddle.autonomous(center: Vector2.zero());
         await game.ready();

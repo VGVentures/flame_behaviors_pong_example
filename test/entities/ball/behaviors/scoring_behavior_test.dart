@@ -10,12 +10,11 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  final flameTester = FlameTester<PongGame>(PongGame.new);
-
   group('ScoreBehavior', () {
     group('scores a point', () {
-      flameTester.test(
+      testWithGame(
         'when hitting the left side',
+        PongGame.new,
         (game) async {
           final center = game.size / 2;
           final behavior = ScoringBehavior();
@@ -35,8 +34,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame(
         'when hitting the right side',
+        PongGame.new,
         (game) async {
           final center = game.size / 2;
           final behavior = ScoringBehavior();
